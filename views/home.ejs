@@ -13,14 +13,12 @@
   <body>
     <div id="app">
       <h1>SunORain</h1>
-      <form id="weatherForm">
+      <form id="weatherForm" action="/" method="POST">
         <label for="cityInput">Enter City Name:</label>
         <input type="text" id="cityInput" name="city" required />
         <button type="submit">Get Weather</button>
       </form>
-      <div id="weatherInfo">
-        
-      </div>
+      <div id="weatherInfo"></div>
     </div>
     <script type="module" src="/dist/index.js"></script>
   </body>

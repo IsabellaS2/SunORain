@@ -8,7 +8,7 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define validation rules for the city query parameter
@@ -24,14 +24,15 @@ app.post("/", validateCityInput, (req: Request, res: Response) => {
   // Check for validation errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    res.render("error.ejs");
   }
+  //
 
   // If validation succeeds, extract the city from the request body
   const city = req.body.city as string;
 
   // Send a success response with "yay"
-  res.send("yay");
+  res.render('weather.ejs')
 });
 
 app.listen(port, () => {

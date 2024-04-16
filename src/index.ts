@@ -26,6 +26,7 @@ app.post("/", validateCityInput, (req: Request, res: Response) => {
   if (!errors.isEmpty()) {
     res.render("error.ejs");
   }
+  //
 
   // If validation succeeds, extract the city from the request body
   const city = req.body.city as string;

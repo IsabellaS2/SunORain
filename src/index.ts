@@ -25,7 +25,7 @@ app.post("/", validateCityInput, async (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     res.render("error.ejs");
-    return; 
+    return;
   }
 
   // If validation succeeds, extract the city from the request body
@@ -38,6 +38,10 @@ app.post("/", validateCityInput, async (req: Request, res: Response) => {
     console.error("Error fetching weather data:", error);
     res.render("error.ejs");
   }
+});
+
+app.get("/about", (req, res) => {
+  res.render("error.ejs"); //about page not made yet, have error page for testing purposes
 });
 
 async function fetchWeatherFromAPI(city: string) {

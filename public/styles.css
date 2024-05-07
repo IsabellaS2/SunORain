@@ -1,3 +1,19 @@
 body {
-   background-color: #56CBF9;
+  background-color: #56cbf9;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+a {
+  color: #dbd8f0;
+  font-family: Lemon;
+  font-size: 40px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

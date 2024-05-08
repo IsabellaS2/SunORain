@@ -15,7 +15,6 @@ body {
 
 .errorContainer {
   color: blue;
-  /* margin: 20%; */
   padding-left: 100px;
   padding-right: 100px;
   border: black 5px;
@@ -23,7 +22,7 @@ body {
 
 a {
   color: #dbd8f0;
-  font-size: 40px;
+  font-size: 35px;
   text-decoration: none;
 }
 
@@ -53,3 +52,8 @@ img {
    width: 35%;
    height: 50%;
 }
+
+#headerImage img {
+   width: 280px;
+   height: auto;
+ }

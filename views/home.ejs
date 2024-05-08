@@ -14,11 +14,10 @@
   </head>
   <body>
     <div id="app">
-      <h1>SunORain</h1>
-      <form id="weatherForm" action="/" method="POST">
-        <label for="cityInput">Whats the weather like in :</label>
+      <form id="weatherForm" class="weatherForm" action="/" method="POST">
+        <h1 for="cityInput">Whats the weather like in :</h1>
         <input type="text" id="cityInput" name="city" required />
-        <button type="submit">Get Weather</button>
+        <button id="getWeatherButton" type="submit">Get Weather</button>
       </form>
       <div id="weatherInfo"></div>
     </div>

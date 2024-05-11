@@ -41,7 +41,7 @@ app.post("/", validateCityInput, async (req: Request, res: Response) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("error.ejs"); //about page not made yet, have error page for testing purposes
+  res.render("about.ejs"); //about page not made yet, have error page for testing purposes
 });
 
 async function fetchWeatherFromAPI(city: string) {

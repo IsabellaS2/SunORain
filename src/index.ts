@@ -2,8 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import { query, validationResult } from "express-validator";
-// import { error } from "console";
-// import fetch from "node-fetch";
+import fetch from "node-fetch";
 
 dotenv.config();
 
@@ -41,7 +40,7 @@ app.post("/", validateCityInput, async (req: Request, res: Response) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about.ejs"); //about page not made yet, have error page for testing purposes
+  res.render("about.ejs");
 });
 
 async function fetchWeatherFromAPI(city: string) {

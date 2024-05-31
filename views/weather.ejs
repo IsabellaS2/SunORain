@@ -13,7 +13,7 @@
     <title>SunORain</title>
   </head>
   <body>
-    <% temperatureValue = Math.round(weatherData.main.temp - 273.15) %>
+    <% let temperatureValue = Math.round(weatherData.main.temp - 273.15) %>
 
     <div class="weatherContainer">
       <div class="weatherTextAndImage">
@@ -51,32 +51,104 @@
         <% } %>
       </div>
 
+
+      <div class="tempAndButtons">
       <div class="weatherTemperature">
         <h3>Temperature:</h3>
-        <h3><%=temperatureValue%>°C</h3>
+        <h3 id="temperatureValue"><%= temperatureValue %>°C</h3>
 
-        <% switch (true) { case temperatureValue <= 0: %>
-        <h4 class="funWeatherText">
-          Bundle up like a burrito and stay toasty! It's frosty out there.
-        </h4>
-        <% break; case temperatureValue <= 10: %>
-        <h4 class="funWeatherText">
-          Chill vibes only! Embrace the cool breeze and enjoy the day.
-        </h4>
-        <% break; case temperatureValue <= 20: %>
-        <h4 class="funWeatherText">
-          Get ready for some vitamin D therapy! The sun's out, smiles on!
-        </h4>
-        <% break; case temperatureValue <= 30:%>
-        <h4 class="funWeatherText">
-          Sun's out, shades on! It's a beach day in the making.
-        </h4>
-        <% break; default: %>
-        <h4 class="funWeatherText">
-          Feeling the heat? Stay cool and hydrated, folks.
-        </h4>
-        <% } %>
+        <div id="temperatureText">
+          <% switch (true) { case temperatureValue <= 0: %>
+          <h4 class="funWeatherText">
+            Bundle up like a burrito and stay toasty! It's frosty out there.
+          </h4>
+          <% break; case temperatureValue <= 10: %>
+          <h4 class="funWeatherText">
+            Chill vibes only! Embrace the cool breeze and enjoy the day.
+          </h4>
+          <% break; case temperatureValue <= 20: %>
+          <h4 class="funWeatherText">
+            Get ready for some vitamin D therapy! The sun's out, smiles on!
+          </h4>
+          <% break; case temperatureValue <= 30:%>
+          <h4 class="funWeatherText">
+            Sun's out, shades on! It's a beach day in the making.
+          </h4>
+          <% break; default: %>
+          <h4 class="funWeatherText">
+            Feeling the heat? Stay cool and hydrated, folks.
+          </h4>
+          <% } %>
+        </div>
       </div>
+      <button class="tempButton" onclick="convertTemperature('C')">
+        Celsius
+      </button>
+      <button class="tempButton" onclick="convertTemperature('F')">
+        Fahrenheit
+      </button>
+      <button class="tempButton" onclick="convertTemperature('K')">
+        Kelvin
+      </button>
     </div>
+
+
+    <script>
+      let temperatureCelsius = <%= temperatureValue %>;
+
+      function convertTemperature(scale) {
+        let temperatureElement = document.getElementById('temperatureValue');
+        let temperatureTextElement = document.getElementById('temperatureText');
+        let temperatureValue;
+
+        switch(scale) {
+          case 'F':
+            temperatureValue = (temperatureCelsius * 9/5) + 32;
+            temperatureElement.innerHTML = temperatureValue.toFixed(1) + '°F';
+            temperatureTextElement.innerHTML = getFunWeatherText(temperatureValue, scale);
+            break;
+          case 'K':
+            temperatureValue = temperatureCelsius + 273.15;
+            temperatureElement.innerHTML = temperatureValue.toFixed(1) + 'K';
+            temperatureTextElement.innerHTML = getFunWeatherText(temperatureValue, scale);
+            break;
+          case 'C':
+          default:
+            temperatureValue = temperatureCelsius;
+            temperatureElement.innerHTML = temperatureValue + '°C';
+            temperatureTextElement.innerHTML = getFunWeatherText(temperatureValue, scale);
+            break;
+        }
+      }
+
+      function getFunWeatherText(temperatureValue, scale) {
+        let celsiusValue;
+
+        switch(scale) {
+          case 'F':
+            celsiusValue = (temperatureValue - 32) * 5/9;
+            break;
+          case 'K':
+            celsiusValue = temperatureValue - 273.15;
+            break;
+          case 'C':
+          default:
+            celsiusValue = temperatureValue;
+            break;
+        }
+
+        if (celsiusValue <= 0) {
+          return '<h4 class="funWeatherText">Bundle up like a burrito and stay toasty! It\'s frosty out there.</h4>';
+        } else if (celsiusValue <= 10) {
+          return '<h4 class="funWeatherText">Chill vibes only! Embrace the cool breeze and enjoy the day.</h4>';
+        } else if (celsiusValue <= 20) {
+          return '<h4 class="funWeatherText">Get ready for some vitamin D therapy! The sun\'s out, smiles on!</h4>';
+        } else if (celsiusValue <= 30) {
+          return '<h4 class="funWeatherText">Sun\'s out, shades on! It\'s a beach day in the making.</h4>';
+        } else {
+          return '<h4 class="funWeatherText">Feeling the heat? Stay cool and hydrated, folks.</h4>';
+        }
+      }
+    </script>
   </body>
 </html>

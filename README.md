@@ -13,7 +13,7 @@ SunORain is a weather application that allows users to get the current weather i
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript, EJS (Embedded JavaScript templates)
+- **Frontend**: HTML, CSS, TypeScript, EJS (Embedded JavaScript templates)
 - **Backend**: Node.js, Express
 - **API**: OpenWeatherMap API
 

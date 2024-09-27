@@ -3,7 +3,6 @@
 SunORain is a weather application that allows users to get the current weather information for any city in the world. The app fetches weather data from the OpenWeatherMap API and presents it in a user-friendly interface. 
 
 ## Features
-
 - **Get Current Weather**: Enter a city name to get the current weather conditions, including temperature, in Celsius, Fahrenheit, and Kelvin.
 - **Responsive Design**: The app is designed to work on various screen sizes, including mobile devices.
 - **Dynamic Weather Icons**: The app displays weather icons that change based on the current temperature.
@@ -12,10 +11,13 @@ SunORain is a weather application that allows users to get the current weather i
 
 
 ## Technologies Used
-
 - **Frontend**: HTML, CSS, TypeScript, EJS (Embedded JavaScript templates)
 - **Backend**: Node.js, Express
 - **API**: OpenWeatherMap API
+
+## Preview Video of Finished Product
+https://github.com/user-attachments/assets/08a35018-1654-4167-9f91-58734c32072e
+
 
 ## Usage
 
@@ -23,6 +25,8 @@ SunORain is a weather application that allows users to get the current weather i
 
 1. Enter a city name in the input field.
 2. Click the "Get Weather" button to fetch and display the weather data.
+
+
 
 ### Weather Page:
 
@@ -70,3 +74,7 @@ SunORain is a weather application that allows users to get the current weather i
 npm run dev 
 npm start
 ```
+
+## Designs
+![Screenshot 2024-09-25 at 15 18 17](https://github.com/user-attachments/assets/2862840e-831f-4ab4-a5c4-8fec5617b25f)
+
